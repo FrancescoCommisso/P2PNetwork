@@ -27,11 +27,6 @@ class Constants {
 
     static final String CLIENT_IMAGES_DIRECTORY_PATH = "/Users/Francesco/Desktop/P2PDHT/Client_";
 
-
-
-    static final String DS_RESPONSE_IMAGE_NOT_FOUND = "404 IMAGE NOT FOUND";
-
-
     /*                CLIENT MESSAGES                            */
     static final String INIT = "1";
     static final String INFORM_AND_UPDATE = "2";

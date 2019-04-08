@@ -36,7 +36,6 @@ public class Main {
             ds.printAllRecords();
         }
 
-
         p2PClient1.exit();
         p2PClient2.exit();
         p2PClient3.exit();

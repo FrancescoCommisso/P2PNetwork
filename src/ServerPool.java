@@ -11,16 +11,12 @@ class ServerPool {
         DirectoryServer ds3 = new DirectoryServer(Constants.SERVER_3_IP, 3);
         DirectoryServer ds4 = new DirectoryServer(Constants.SERVER_4_IP, 4);
 
-        ds1.setLeftNeighbor(Constants.SERVER_4_IP);
         ds1.setRightNeighbor(Constants.SERVER_2_IP);
 
-        ds2.setLeftNeighbor(Constants.SERVER_1_IP);
         ds2.setRightNeighbor(Constants.SERVER_3_IP);
 
-        ds3.setLeftNeighbor(Constants.SERVER_2_IP);
         ds3.setRightNeighbor(Constants.SERVER_4_IP);
 
-        ds4.setLeftNeighbor(Constants.SERVER_3_IP);
         ds4.setRightNeighbor(Constants.SERVER_1_IP);
 
         directoryServers.add(ds1);

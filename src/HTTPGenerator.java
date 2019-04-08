@@ -1,4 +1,4 @@
-public class HTTPGenerator {
+ class HTTPGenerator {
 
     static String createHTTPRequest(String path, String host) {
 

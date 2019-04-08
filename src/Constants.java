@@ -15,10 +15,6 @@ class Constants {
     static final int PEER_TCP_IN_PORT = 9012;
     static final int PEER_TCP_OUT_PORT = 9013;
 
-
-    static final String LOCAL_IP = "192.168.2.26";
-    static final String LOCAL_IP_2 = "::1";
-
     static final String SERVER_1_IP = "127.0.1.0";
     static final String SERVER_2_IP = "127.0.1.1";
     static final String SERVER_3_IP = "127.0.1.2";
@@ -29,6 +25,10 @@ class Constants {
     static final String CLIENT_IP_3 = "127.0.1.6";
     static final String CLIENT_IP_4 = "127.0.1.7";
 
+    static final String CLIENT_IMAGES_DIRECTORY_PATH = "/Users/Francesco/Desktop/P2PDHT/Client_";
+
+
+
     static final String DS_RESPONSE_IMAGE_NOT_FOUND = "404 IMAGE NOT FOUND";
 
 
@@ -36,7 +36,6 @@ class Constants {
     static final String INIT = "1";
     static final String INFORM_AND_UPDATE = "2";
     static final String QUERY_FOR_CONTENT = "3";
-    static final String FILE_TRANSFER = "4";
     static final String EXIT = "5";
     /*                CLIENT MESSAGES                            */
 

@@ -6,43 +6,43 @@ public class Main {
 
         ServerPool sp = new ServerPool();
 
-        Client client1 = new Client(11, Constants.CLIENT_IP_1);
-        Client client2 = new Client(12, Constants.CLIENT_IP_2);
-        Client client3 = new Client(13, Constants.CLIENT_IP_3);
-        Client client4 = new Client(14, Constants.CLIENT_IP_4);
+        P2PClient p2PClient1 = new P2PClient(11, Constants.CLIENT_IP_1);
+        P2PClient p2PClient2 = new P2PClient(12, Constants.CLIENT_IP_2);
+        P2PClient p2PClient3 = new P2PClient(13, Constants.CLIENT_IP_3);
+        P2PClient p2PClient4 = new P2PClient(14, Constants.CLIENT_IP_4);
 
-        client1.init();
-        client2.init();
-        client3.init();
-        client4.init();
+        p2PClient1.init();
+        p2PClient2.init();
+        p2PClient3.init();
+        p2PClient4.init();
 
-        client1.informAndUpdate("/Users/Francesco/Desktop/P2PImages/a.jpeg");
-        client2.informAndUpdate("/Users/Francesco/Desktop/P2PImages/b.jpeg");
-        client3.informAndUpdate("/Users/Francesco/Desktop/P2PImages/c.jpeg");
-        client4.informAndUpdate("/Users/Francesco/Desktop/P2PImages/d.jpeg");
+        p2PClient1.informAndUpdate("/Users/Francesco/Desktop/P2PImages/a.jpeg");
+        p2PClient2.informAndUpdate("/Users/Francesco/Desktop/P2PImages/b.jpeg");
+        p2PClient3.informAndUpdate("/Users/Francesco/Desktop/P2PImages/c.jpeg");
+        p2PClient4.informAndUpdate("/Users/Francesco/Desktop/P2PImages/d.jpeg");
 
 
-        client1.queryForContent("c.jpeg");
+        p2PClient1.queryForContent("c.jpeg");
 
-        System.out.println("\nAFTER PLACING ALL IMAGES THE DIRECTORY SERVERS LOOK LIKE:\n");
+        System.out.println("\nAFTER ADDING ALL IMAGES THE DIRECTORY HAVE THE FOLLOWING ENTRIES:\n");
 
         for (DirectoryServer ds : sp.getDirectoryServers()) {
             ds.printAllRecords();
         }
 
-        client1.fileTransfer("c.jpeg");
-        System.out.println("\nAFTER FILE TRANSFERS, ALL IMAGES THE DIRECTORY SERVERS LOOK LIKE:\n");
+        p2PClient1.fileTransfer("c.jpeg");
+        System.out.println("\nAFTER FILE TRANSFERS,THE DIRECTORY SERVERS HAVE THE FOLLOWING ENTRIES:\n");
         for (DirectoryServer ds : sp.getDirectoryServers()) {
             ds.printAllRecords();
         }
 
 
-        client1.exit();
-        client2.exit();
-        client3.exit();
-        client4.exit();
+        p2PClient1.exit();
+        p2PClient2.exit();
+        p2PClient3.exit();
+        p2PClient4.exit();
 
-        System.out.println("\nAFTER EXITING, ALL IMAGES THE DIRECTORY SERVERS LOOK LIKE:\n");
+        System.out.println("\nAFTER CLIENTS EXIT,THE DIRECTORY SERVERS HAVE THE FOLLOWING ENTRIES:\n");
 
         for (DirectoryServer ds : sp.getDirectoryServers()) {
             ds.printAllRecords();

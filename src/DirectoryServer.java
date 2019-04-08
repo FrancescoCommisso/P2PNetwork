@@ -9,7 +9,6 @@ import java.util.Set;
 
 class DirectoryServer extends TCPServer {
 
-    private InetAddress leftNeighbor;
     private InetAddress rightNeighbor;
 
     private HashMap<String, String> clientLookup;
@@ -17,10 +16,6 @@ class DirectoryServer extends TCPServer {
     DirectoryServer(String IPAddress, int directoryServerID) throws UnknownHostException {
         super(IPAddress, directoryServerID, Constants.DIRECTORY_SERVER_TCP_PORT);
         clientLookup = new HashMap<>();
-    }
-
-    void setLeftNeighbor(String leftNeighbor) throws UnknownHostException {
-        this.leftNeighbor = InetAddress.getByName(leftNeighbor);
     }
 
     private InetAddress getRightNeighbor() {

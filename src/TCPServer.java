@@ -44,16 +44,11 @@ public class TCPServer {
             DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
             clientMessage = inFromClient.readLine();
 
-            System.out.println("From Client: " + clientMessage);
+            System.out.println("From P2PClient: " + clientMessage);
             response = "Got your message!" + '\n';
             outToClient.writeBytes(response);
         }
     }
-
-    //OVERRIDE ME IN SUBCLASSES
-//    protected BufferedImage handleClientMessage(String clientMessage) throws IOException {
-//return new BufferedImage();
-//    }
 
     void openTCPSocket() {
 

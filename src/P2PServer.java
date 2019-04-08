@@ -6,12 +6,12 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class PeerTCPServer extends TCPServer {
-    private Client client;
+public class P2PServer extends TCPServer {
+    private P2PClient p2PClient;
 
-    PeerTCPServer(String IPAddress, int serverID, int port, Client client) throws UnknownHostException {
+    P2PServer(String IPAddress, int serverID, int port, P2PClient p2PClient) throws UnknownHostException {
         super(IPAddress, serverID, port);
-        this.client = client;
+        this.p2PClient = p2PClient;
     }
 
     @Override
@@ -21,7 +21,6 @@ public class PeerTCPServer extends TCPServer {
         ServerSocket welcomeSocket = new ServerSocket(this.getPort(), 0, this.getIPAddress());
         System.out.println("Server: " + this.getServerID() + " creating TCP Socket at: " + welcomeSocket.getInetAddress().toString() + ":" + welcomeSocket.getLocalPort());
 
-        //OVERRIDE ME IN SUBCLASSES
         while (true) {
             Socket connectionSocket = welcomeSocket.accept();
 
@@ -38,7 +37,7 @@ public class PeerTCPServer extends TCPServer {
 
     //    @Override
     protected BufferedImage handleClientMessage(String clientMessage) throws IOException {
-        return this.client.handleFileTransferRequest(clientMessage);
+        return this.p2PClient.handleFileTransferRequest(clientMessage);
     }
 
     @Override
@@ -47,10 +46,10 @@ public class PeerTCPServer extends TCPServer {
         DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
         outToServer.writeBytes(data + '\n');
         outToServer.writeBytes(data + '\n');
-        OutputStream os = null;
+        OutputStream os;
 
         try {
-            File file = new File(client.getImagesPath() + "/newFile.jpeg");
+            File file = new File(p2PClient.getImagesPath() + "/newFile.jpeg");
             os = new FileOutputStream(file);
             int read = 0;
             byte[] bytes = new byte[1024];

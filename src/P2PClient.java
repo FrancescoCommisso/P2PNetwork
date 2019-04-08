@@ -11,23 +11,23 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 
-class Client extends UDPClient {
+class P2PClient extends UDPClient {
 
     private int clientID;
     private ArrayList<String> directoryServerIPs;
     private String imagesPath;
     private File imageDirectory;
-    private PeerTCPServer tcpServer;
+    private P2PServer tcpServer;
 
-    Client(int id, String IPaddress) throws UnknownHostException {
+    P2PClient(int id, String IPaddress) throws UnknownHostException {
         super(InetAddress.getByName(IPaddress));
         this.clientID = id;
         directoryServerIPs = new ArrayList<>();
         directoryServerIPs.add(Constants.SERVER_1_IP);
-        imagesPath = "/Users/Francesco/Desktop/P2PDHT/Client_" + clientID + "_Images";
+        imagesPath = Constants.CLIENT_IMAGES_DIRECTORY_PATH + clientID + "_Images";
         imageDirectory = new File(imagesPath);
         imageDirectory.mkdirs();
-        tcpServer = new PeerTCPServer(IPaddress, clientID, Constants.PEER_TCP_IN_PORT, this);
+        tcpServer = new P2PServer(IPaddress, clientID, Constants.PEER_TCP_IN_PORT, this);
         tcpServer.openTCPSocket();
     }
 
@@ -44,7 +44,7 @@ class Client extends UDPClient {
             directoryServerIPs.add(response);
         }
         System.out.println();
-        System.out.println("Client: " + clientID + " initialized with Server IPs:");
+        System.out.println("P2PClient: " + clientID + " initialized with Server IPs:");
         for (String s : directoryServerIPs) {
             System.out.println(s);
         }
@@ -112,9 +112,8 @@ class Client extends UDPClient {
             }
             imageDirectory.delete();
 
-        System.out.println("Client: " + clientID + " has exited the network");
+        System.out.println("P2PClient: " + clientID + " has exited the network");
     }
-
 
 }
 

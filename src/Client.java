@@ -103,8 +103,16 @@ class Client extends UDPClient {
         for (String ds : directoryServerIPs) {
             sendUDPMessage("", ds, Constants.DIRECTORY_SERVER_UDP_PORT, Constants.EXIT);
         }
+
+        File[] files = imageDirectory.listFiles();
+            if (files != null && files.length > 0) {
+                for (File aFile : files) {
+                    aFile.delete();
+                }
+            }
+            imageDirectory.delete();
+
         System.out.println("Client: " + clientID + " has exited the network");
-        imageDirectory.delete();
     }
 
 

@@ -35,8 +35,7 @@ public class P2PServer extends TCPServer {
         }
     }
 
-    //    @Override
-    protected BufferedImage handleClientMessage(String clientMessage) throws IOException {
+     BufferedImage handleClientMessage(String clientMessage) throws IOException {
         return this.p2PClient.handleFileTransferRequest(clientMessage);
     }
 

@@ -22,8 +22,6 @@ public class Main {
         p2PClient4.informAndUpdate("/Users/Francesco/Desktop/P2PImages/d.jpeg");
 
 
-        p2PClient1.queryForContent("c.jpeg");
-
         System.out.println("\nAFTER ADDING ALL IMAGES THE DIRECTORY HAVE THE FOLLOWING ENTRIES:\n");
 
         for (DirectoryServer ds : sp.getDirectoryServers()) {
@@ -36,10 +34,10 @@ public class Main {
             ds.printAllRecords();
         }
 
-        p2PClient1.exit();
-        p2PClient2.exit();
-        p2PClient3.exit();
-        p2PClient4.exit();
+//        p2PClient1.exit();
+//        p2PClient2.exit();
+//        p2PClient3.exit();
+//        p2PClient4.exit();
 
         System.out.println("\nAFTER CLIENTS EXIT,THE DIRECTORY SERVERS HAVE THE FOLLOWING ENTRIES:\n");
 

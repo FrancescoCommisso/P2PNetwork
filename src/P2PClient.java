@@ -60,7 +60,7 @@ class P2PClient extends UDPClient {
         return (sum % 4);
     }
 
-    String parsePath(String path) {
+  public static String parsePath(String path) {
         int lastDash = 0;
         for (int i = path.length() - 1; i >= 0; i--) {
             if (path.substring(i, i + 1).equals("/")) {

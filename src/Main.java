@@ -35,9 +35,6 @@ public class Main {
            String neighbour=scan.nextLine();
            ds1.setRightNeighbor(neighbour);
 
-        }else{
-             P2PClient client = new P2PClient(Integer.parseInt(id), localhost);
-
         }
 
 

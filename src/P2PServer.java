@@ -46,9 +46,10 @@ public class P2PServer extends TCPServer {
         outToServer.writeBytes(data + '\n');
         outToServer.writeBytes(data + '\n');
         OutputStream os;
+        File file = new File(p2PClient.getImagesPath() + "/newFile.jpeg");
+
 
         try {
-            File file = new File(p2PClient.getImagesPath() + "/newFile.jpeg");
             os = new FileOutputStream(file);
             int read = 0;
             byte[] bytes = new byte[1024];
@@ -58,6 +59,9 @@ public class P2PServer extends TCPServer {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+        p2PClient.informAndUpdate(file.getPath());
         clientSocket.close();
     }
 }

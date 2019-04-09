@@ -29,6 +29,9 @@ public class Main {
         }
 
         p2PClient1.fileTransfer("c.jpeg");
+        p2PClient2.fileTransfer("c.jpeg");
+        p2PClient3.fileTransfer("c.jpeg");
+        p2PClient4.fileTransfer("c.jpeg");
         System.out.println("\nAFTER FILE TRANSFERS,THE DIRECTORY SERVERS HAVE THE FOLLOWING ENTRIES:\n");
         for (DirectoryServer ds : sp.getDirectoryServers()) {
             ds.printAllRecords();
